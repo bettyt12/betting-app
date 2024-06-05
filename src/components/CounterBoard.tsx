@@ -1,6 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { BetState } from '../redux/slices/betSlices';
 
 interface Props {
   number: number;
@@ -51,6 +51,7 @@ useEffect(() => {
 		}, 30)
 
 		return () => clearInterval(interval)
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [number])
 
 useEffect(() => {
