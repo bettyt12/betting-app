@@ -12,7 +12,7 @@ const RecentHistory: React.FC<Props> = ({ bets }: Props) => {
   const bets_list = [...bets].reverse(); 
 
   return (
-    <div className=' flex flex-col gap-2 p-4 bg-slate-950 border border-slate-500 w-full rounded-md'>
+    <div className=' flex flex-col gap-2 p-4 bg-slate-950 border border-sky-800 w-full rounded-md'>
       <p className='text-white text-center font-medium'>Recent History</p>
       <div className='flex flex-col gap-1 overflow-x-hidden overflow-y-auto h-72 recent-history-container '>
         <AnimatePresence mode={'popLayout'}>
