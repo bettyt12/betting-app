@@ -29,7 +29,7 @@ console.log(bets);
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ type: 'spring' }}
                 className={`px-3 text-[13px] flex-grow flex justify-center items-center md:text-base md:px-6 py-1.5 rounded-full font-medium tracking-wide text-white ${
-                  won ? 'bg-primary-blue' : 'bg-secondary-blue'
+                  won ? 'bg-blue-800' : 'bg-blue-400'
                 }`}
               >
                 {bet.generatedNumber}x
