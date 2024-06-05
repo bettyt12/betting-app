@@ -4,9 +4,9 @@ interface TextInputProps {
   name: string;
   label: string;
   onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void; 
-  value: string;
+  value: number | string;
   placeholder?: string; // Optional placeholder
-  formValidation?: (name: string, value: string) => string | undefined; // Optional form validation function with optional return type (error message)
+  formValidation?: (name: string, value: number | string) => string | undefined; // Optional form validation function with optional return type (error message)
 }
 
 const TextInput: React.FC<TextInputProps> = ({
