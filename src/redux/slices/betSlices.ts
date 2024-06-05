@@ -21,7 +21,7 @@ const initialState: BetState = {
   next_number: 0,
   current_bet: {
     betAmount: 0,
-    targetMultiplier: 1,
+    targetMultiplier: 0,
   },
 };
 

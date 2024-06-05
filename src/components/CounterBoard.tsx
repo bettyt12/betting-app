@@ -12,12 +12,12 @@ const CounterBoard: React.FC<Props> = ({ number, onCountFinish }: Props) => {
 
   // const [num, setNum] = useState(1);
   // const [decimal, setDecimal] = useState(0);
-	const [num, setNum] = useState(1);
-	const numRef = useRef(num);
-	const [decimal, setDecimal] = useState(0);
-	const decimalRef = useRef(decimal);
+  const [num, setNum] = useState(1);
+  const numRef = useRef(num);
+  const [decimal, setDecimal] = useState(0);
+  const decimalRef = useRef(decimal);
 
-	const [n,d] = `${number}`.split('.');
+  const [n, d] = `${number}`.split('.');
 
   const [numCountEnded, setNumCountEnded] = useState(false);
   const [decimalCountEnded, setDecimalCountEnded] = useState(false);
@@ -29,55 +29,60 @@ const CounterBoard: React.FC<Props> = ({ number, onCountFinish }: Props) => {
     setDecimalCountEnded(false);
   }, [number]);
 
-	useEffect(() => {
-		setNum((prev) => 1);
-		numRef.current = 1;
+  useEffect(() => {
+    setNum((prev) => 1);
+    numRef.current = 1;
 
-		setDecimal((prev) => 0);
-		decimalRef.current = 0;
+    setDecimal((prev) => 0);
+    decimalRef.current = 0;
 
-		setNumCountEnded(false);
-		setDecimalCountEnded(false);
-}, [number])
+    setNumCountEnded(false);
+    setDecimalCountEnded(false);
+  }, [number]);
 
-useEffect(() => {
-		const interval = setInterval(() => {
-				if(numRef.current<Number(n)){
-						setNum((n) => n + 1);
-						numRef.current = numRef.current + 1;
-				}else{
-						setNumCountEnded((prev) => true);
-				}
-		}, 30)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (numRef.current < Number(n)) {
+        setNum((n) => n + 1);
+        numRef.current = numRef.current + 1;
+      } else {
+        setNumCountEnded((prev) => true);
+      }
+    }, 30);
 
-		return () => clearInterval(interval)
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [number])
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [number]);
 
-useEffect(() => {
-		const interval = setInterval(() => {
-				if(decimalRef.current< Number(d)){
-						setDecimal((n) => n + 1);
-						decimalRef.current = decimalRef.current + 1;
-				}else{
-						setDecimalCountEnded((prev) => true);
-				}
-		}, 40)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (decimalRef.current < Number(d)) {
+        setDecimal((n) => n + 1);
+        decimalRef.current = decimalRef.current + 1;
+      } else {
+        setDecimalCountEnded((prev) => true);
+      }
+    }, 40);
 
-		return () => clearInterval(interval)
-}, [number])
+    return () => clearInterval(interval);
+  }, [number]);
 
-useEffect(() => {
-	if(numCountEnded && decimalCountEnded && number>1){
-			onCountFinish();
-	}
-}, [numCountEnded, decimalCountEnded])
+  useEffect(() => {
+    if (numCountEnded && decimalCountEnded && number > 1) {
+      onCountFinish();
+    }
+  }, [numCountEnded, decimalCountEnded]);
 
   return (
     <div
-      className={`text-6xl md:text-8xl tracking-wider font-semibold ${
-        !numCountEnded || !decimalCountEnded ? 'text-white' : parseFloat(current_bet.targetMultiplier) >= number ? 'text-blue-400' : 'text-red-600'
+      className={`text-6xl md:text-8xl tracking-wider font-semibold mt-2 ${
+        !numCountEnded || !decimalCountEnded
+          ? 'text-white'
+          : parseFloat(current_bet.targetMultiplier) >= number
+          ? 'text-sky-600'
+          : 'text-red-600'
       }`}
+      style={{ display: 'flex', justifyContent: 'center' }}
     >
       {num}.{decimal < 10 ? `0${decimal}` : decimal}x
     </div>

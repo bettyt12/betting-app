@@ -6,16 +6,15 @@ interface Bet {
   targetMultiplier: number;
   generatedNumber: number;
   betAmount: number;
-  // Add other bet properties as needed
 }
 
 const RecentHistory: React.FC<Props> = ({ bets }: Props) => {
-  const bets_list = [...bets].reverse(); // Concise list preparation
+  const bets_list = [...bets].reverse(); 
 
   return (
-    <div className=' flex flex-col gap-2 p-4 bg-slate-950 border border-gray-600 w-full radius'>
+    <div className=' flex flex-col gap-2 p-4 bg-slate-950 border border-slate-500 w-full rounded-md'>
       <p className='text-white text-center font-medium'>Recent History</p>
-      <div className='flex flex-col gap-1  overflow-x-hidden overflow-y-hidden overflow-scroll'>
+      <div className='flex flex-col gap-1 overflow-x-hidden overflow-y-auto h-72 '>
         <AnimatePresence mode={'popLayout'}>
           {bets_list.map((bet: Bet) => {
             const won = bet.targetMultiplier >= bet.generatedNumber;
@@ -26,8 +25,8 @@ const RecentHistory: React.FC<Props> = ({ bets }: Props) => {
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ type: "spring" }}
                 key={bet.id}
-                className={`flex flex-row gap-1 md:gap-2 lg:gap-4 xl:gap-8 items-center px-4 py-2 bg-secondary-bg-blue border-[1px] rounded-xl ${
-                  won ? 'border-primary-blue' : 'border-primary-red'
+                className={`flex flex-row gap-1 md:gap-2  bg-slate-900 lg:gap-4 xl:gap-8 items-center px-4 py-2  border-[1px] rounded-xl ${
+                  won ? 'border-slate-950' : 'border-red-500'
                 }`}
               >
                 <div className='flex flex-col'>
