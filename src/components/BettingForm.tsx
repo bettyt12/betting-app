@@ -2,12 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleBetChange, generateNextNumber } from '../redux/slices/betSlices'; // Assuming these are action creators
 import TextInput from './TextInput'; 
-interface Bet {
-	[key: string]: number | string;
-  targetMultiplier: number;
-  betAmount: number;
-	name:string;
-}
+
 
 const BettingForm: React.FC = () => {
   const dispatch = useDispatch<any>();
