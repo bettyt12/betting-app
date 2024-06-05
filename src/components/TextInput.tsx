@@ -41,14 +41,14 @@ const TextInput: React.FC<TextInputProps> = ({
         <input
           disabled={!onChangeHandler}
           type='text'
-          className={`w-full rounded-lg bg-accent-blue text-slate-400 text-sm border-[1px] disabled:border-slate-400 focus:outline-none py-2 md:py-3 px-3`}
+          className={`w-full rounded-lg bg-slate-800 border-slate-800 text-slate-400 text-sm border-[1px]  focus:outline-none py-2 md:py-3 px-3`}
           onChange={onChangeHandler}
           value={value}
           name={name}
           placeholder={placeholder}
         />
       </div>
-      {!valid && <p className='text-primary-red text-[13px]'>{errorMessage}</p>}
+      {!valid && <p className='text-red-600 text-[13px]'>{errorMessage}</p>}
     </div>
   );
 };

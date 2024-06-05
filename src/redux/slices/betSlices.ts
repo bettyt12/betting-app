@@ -21,7 +21,7 @@ const initialState: BetState = {
   next_number: 0,
   current_bet: {
     betAmount: 0,
-    targetMultiplier: 0,
+    targetMultiplier: 1,
   },
 };
 
@@ -29,31 +29,13 @@ export const betSlice = createSlice({
   name: 'bets',
   initialState,
   reducers: {
-    // makeNewBet: (state, action: { payload: Bet }) => {
-    //   console.log(action.payload);
-      
-    //   state.bets.push(action.payload); 
-    // },
-    // handleBetChange: (state, action: { payload: { betAmount: number; targetMultiplier: number } }) => {
-    //   state.current_bet = action.payload; 
-    // },
-    // generateNextNumber: (state,action) => {
-    //   console.log(state);
-      
-    //   const nextNum = Math.random() * (100 - 1 + 1) + 1;
-    //   state.next_number = nextNum; 
-    // },
     makeNewBet: (state, action) => {
       state.bets = [...state.bets, action.payload];
     },
     handleBetChange: (state, action) => {
-      console.log(state);
-      
       state.current_bet = action.payload;
     },
     generateNextNumber: (state) => {
-      console.log(state,"gfg");
-      
       const nextNum = Math.random() * (100 - 1 + 1) + 1;
       state.next_number = parseFloat(parseFloat(`${nextNum}`).toFixed(2));
       console.log(state.next_number);

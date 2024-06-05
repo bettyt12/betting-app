@@ -12,8 +12,7 @@ interface TopListProps {
 }
 
 const TopList: React.FC<TopListProps> = ({ bets }) => {
-  const filteredBets = bets.slice(0, Math.min(bets.length, 5)).reverse(); // Concise filtering and reversal
-console.log(bets);
+  const filteredBets = bets.slice(0, Math.min(bets.length, 5)); 
 
   return (
     <div className='absolute left-0 top-0 flex flex-row gap-1 lg:gap-3 w-full justify-end p-2 md:p-4'>
@@ -28,8 +27,8 @@ console.log(bets);
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ type: 'spring' }}
-                className={`px-3 text-[13px] flex-grow flex justify-center items-center md:text-base md:px-6 py-1.5 rounded-full font-medium tracking-wide text-white ${
-                  won ? 'bg-blue-800' : 'bg-blue-400'
+                className={`px-3 text-[13px] flex-grow flex justify-center items-center md:text-base md:px-6 py-1.5 rounded-full font-medium tracking-wide ${
+                  won ?  ' text-white bg-sky-600': 'text-sky-700 bg-sky-950'
                 }`}
               >
                 {bet.generatedNumber}x

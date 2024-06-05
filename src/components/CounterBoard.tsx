@@ -8,7 +8,7 @@ interface Props {
 }
 
 const CounterBoard: React.FC<Props> = ({ number, onCountFinish }: Props) => {
-  const current_bet = useSelector((state: any) => state.bets);
+  const current_bet = useSelector((state: any) => state.bets.current_bet);
 
   // const [num, setNum] = useState(1);
   // const [decimal, setDecimal] = useState(0);
@@ -72,6 +72,7 @@ const CounterBoard: React.FC<Props> = ({ number, onCountFinish }: Props) => {
       onCountFinish();
     }
   }, [numCountEnded, decimalCountEnded]);
+console.log(current_bet.targetMultiplier, number);
 
   return (
     <div

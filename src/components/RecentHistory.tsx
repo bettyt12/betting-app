@@ -14,7 +14,7 @@ const RecentHistory: React.FC<Props> = ({ bets }: Props) => {
   return (
     <div className=' flex flex-col gap-2 p-4 bg-slate-950 border border-slate-500 w-full rounded-md'>
       <p className='text-white text-center font-medium'>Recent History</p>
-      <div className='flex flex-col gap-1 overflow-x-hidden overflow-y-auto h-72 '>
+      <div className='flex flex-col gap-1 overflow-x-hidden overflow-y-auto h-72 recent-history-container '>
         <AnimatePresence mode={'popLayout'}>
           {bets_list.map((bet: Bet) => {
             const won = bet.targetMultiplier >= bet.generatedNumber;
@@ -26,7 +26,7 @@ const RecentHistory: React.FC<Props> = ({ bets }: Props) => {
                 transition={{ type: "spring" }}
                 key={bet.id}
                 className={`flex flex-row gap-1 md:gap-2  bg-slate-900 lg:gap-4 xl:gap-8 items-center px-4 py-2  border-[1px] rounded-xl ${
-                  won ? 'border-slate-950' : 'border-red-500'
+                  won ? 'border-sky-700' : 'border-red-400'
                 }`}
               >
                 <div className='flex flex-col'>
