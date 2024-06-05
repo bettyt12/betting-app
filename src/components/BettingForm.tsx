@@ -88,7 +88,7 @@ const BettingForm: React.FC = () => {
       />
       <button
         disabled={!canBet()}
-        className="px-8 py-2 bg-primary-blue bg-sky-600 hover:opacity-80 duration-300 text-white rounded-lg"
+        className="px-8 py-2  bg-sky-600 hover:opacity-80 duration-300 text-white rounded-lg"
         onClick={handleBetClick}
       >
         Bet
